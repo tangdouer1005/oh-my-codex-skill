@@ -66,6 +66,16 @@ All skills live under `skills/`, with one directory per skill. Each skill usuall
 
 Clone the repository, then copy or sync the skill folders you want into your local Codex skill directories.
 
+For a full install on a new machine:
+
+```bash
+git clone https://github.com/<your-username>/oh-my-codex-skills.git
+cd oh-my-codex-skills
+bash install.sh
+```
+
+The script installs skills into `~/.codex/skills` and `~/.agents/skills` using an explicit mapping that matches the original local environment.
+
 Example:
 
 ```bash
