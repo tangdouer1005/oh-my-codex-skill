@@ -1,0 +1,4 @@
+interface:
+  display_name: "开票申请邮件"
+  short_description: "按报销记录生成并发送开票邮件。"
+  default_prompt: "使用 $invoice-request-mail 从报销记录中提取付款信息，按规则分组成开票申请邮件，在飞书邮箱中创建草稿，并在我明确确认后发送。"

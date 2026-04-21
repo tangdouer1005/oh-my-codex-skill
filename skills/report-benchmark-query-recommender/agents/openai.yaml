@@ -1,0 +1,4 @@
+interface:
+  display_name: "Report Benchmark Query Recommender"
+  short_description: "Recommend chart benchmark queries"
+  default_prompt: "Use $report-benchmark-query-recommender to recommend reasoning-heavy chart benchmark queries from the third section of this parsed report summary."

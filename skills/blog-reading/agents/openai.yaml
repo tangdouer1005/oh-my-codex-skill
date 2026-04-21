@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blog Reading"
+  short_description: "Analyze technical blogs with first-principles Chinese notes"
+  default_prompt: "Use $blog-reading to read the given technical blog and explain it with a first-principles Chinese outline."

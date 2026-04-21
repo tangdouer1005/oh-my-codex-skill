@@ -1,0 +1,4 @@
+interface:
+  display_name: "Weekly Report Maintainer"
+  short_description: "Maintain event-based weekly reports in Feishu."
+  default_prompt: "Use $lark-weekly-report-maintainer to maintain my Feishu weekly report with an event summary and raw log."

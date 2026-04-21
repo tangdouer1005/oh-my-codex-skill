@@ -1,0 +1,4 @@
+interface:
+  display_name: "PDF Report Parser"
+  short_description: "Summarize PDF reports into Markdown documents"
+  default_prompt: "Read this PDF report directly, analyze its structure manually, and generate a Markdown summary with the main topic, a page-range outline, and when applicable an exhaustive matrix-style table where rows are entities and columns are shared metrics, followed by metric explanations."

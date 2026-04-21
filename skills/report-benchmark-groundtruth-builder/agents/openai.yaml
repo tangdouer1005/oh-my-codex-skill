@@ -1,0 +1,4 @@
+interface:
+  display_name: "Report Benchmark Groundtruth Builder"
+  short_description: "Build chart benchmark groundtruth bundles"
+  default_prompt: "Use $report-benchmark-groundtruth-builder to turn a parsed report summary and its query recommendations into benchmark groundtruth data, chart code, and chart images."
