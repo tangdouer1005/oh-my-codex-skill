@@ -12,6 +12,7 @@ This repository is meant to serve two purposes:
 ### General and workflow skills
 
 - `blog-reading`
+- `deep-research`
 - `defuddle`
 - `excalidraw-diagram`
 - `invoice-request-mail`
