@@ -1,0 +1,262 @@
+lab_name: example-lab
+default_transfer_method: rsync
+default_log_dir: logs
+
+secret_provider_config:
+  bitwarden:
+    server_url: https://vault.bitwarden.com
+    email: fill-me
+    local_config: ~/.config/lab-cluster-ops/config.json
+    ssh_agent_socket: ~/.bitwarden-ssh-agent.sock
+    notes:
+      - Server URL and email are non-secret convenience config.
+      - Use a custom server URL only for self-hosted Bitwarden.
+      - SSH keys should use Bitwarden Desktop SSH Agent before local private-key files.
+      - Do not store master password, API key, TOTP seed, current TOTP code, or private-key contents in this inventory.
+
+machines:
+  - name: lab-baremetal-01
+    category: direct-ssh
+    description: self-maintained server
+    ssh_alias: fill-me
+    hostname: fill-me
+    user: fill-me
+    port: 22
+    identity_file:
+    auth_mode: ssh-key
+    secret_provider: bitwarden
+    bitwarden_item: fill-me
+    password_ref:
+    totp_ref:
+    ssh_key_ref: bitwarden:ssh-agent:fill-me
+    ssh_key_mode: bitwarden-ssh-agent
+    identity_agent: ~/.bitwarden-ssh-agent.sock
+    scheduler: none
+    gpu_type: fill-me
+    workspace_root: /path/to/work
+    storage_root: /path/to/data
+    access_status: available
+    env_bootstrap:
+      - source ~/.zshrc
+      - conda activate my-env
+    notes:
+      - preferred for interactive debugging
+
+  - name: lab-baremetal-02
+    category: direct-ssh
+    description: self-maintained server
+    ssh_alias: fill-me
+    hostname: fill-me
+    user: fill-me
+    port: 22
+    identity_file:
+    auth_mode: ssh-key
+    secret_provider: bitwarden
+    bitwarden_item: fill-me
+    password_ref:
+    totp_ref:
+    ssh_key_ref: bitwarden:ssh-agent:fill-me
+    ssh_key_mode: bitwarden-ssh-agent
+    identity_agent: ~/.bitwarden-ssh-agent.sock
+    scheduler: none
+    gpu_type: fill-me
+    workspace_root: /path/to/work
+    storage_root: /path/to/data
+    access_status: fill-me
+    env_bootstrap: []
+    notes: []
+
+  - name: lab-baremetal-03
+    category: direct-ssh
+    description: self-maintained server
+    ssh_alias: fill-me
+    hostname: fill-me
+    user: fill-me
+    port: 22
+    identity_file:
+    auth_mode: ssh-key
+    secret_provider: bitwarden
+    bitwarden_item: fill-me
+    password_ref:
+    totp_ref:
+    ssh_key_ref: bitwarden:ssh-agent:fill-me
+    ssh_key_mode: bitwarden-ssh-agent
+    identity_agent: ~/.bitwarden-ssh-agent.sock
+    scheduler: none
+    gpu_type: fill-me
+    workspace_root: /path/to/work
+    storage_root: /path/to/data
+    access_status: fill-me
+    env_bootstrap: []
+    notes: []
+
+  - name: lab-baremetal-04
+    category: direct-ssh
+    description: self-maintained server
+    ssh_alias: fill-me
+    hostname: fill-me
+    user: fill-me
+    port: 22
+    identity_file:
+    auth_mode: ssh-key
+    secret_provider: bitwarden
+    bitwarden_item: fill-me
+    password_ref:
+    totp_ref:
+    ssh_key_ref: bitwarden:ssh-agent:fill-me
+    ssh_key_mode: bitwarden-ssh-agent
+    identity_agent: ~/.bitwarden-ssh-agent.sock
+    scheduler: none
+    gpu_type: fill-me
+    workspace_root: /path/to/work
+    storage_root: /path/to/data
+    access_status: fill-me
+    env_bootstrap: []
+    notes: []
+
+  - name: school-hpc
+    category: ssh-plus-totp-slurm
+    description: university supercomputer
+    ssh_alias: fill-me
+    hostname: fill-me
+    user: fill-me
+    port: 22
+    identity_file:
+    auth_mode: ssh-key-plus-totp
+    secret_provider: bitwarden
+    bitwarden_item: fill-me
+    password_ref:
+    totp_ref: bitwarden:item:fill-me:totp
+    ssh_key_ref: bitwarden:ssh-agent:fill-me
+    ssh_key_mode: bitwarden-ssh-agent
+    identity_agent: ~/.bitwarden-ssh-agent.sock
+    scheduler: slurm
+    login_host: fill-me
+    account: fill-me
+    partition: fill-me
+    qos: fill-me
+    workspace_root: /path/to/work
+    scratch_root: /path/to/scratch
+    access_status: fill-me
+    module_loads:
+      - module load cuda/fill-me
+    env_bootstrap:
+      - source ~/.bashrc
+      - conda activate my-env
+    notes:
+      - do not run heavy jobs on the login node
+
+  - name: department-hpc
+    category: ssh-plus-totp-slurm
+    description: department supercomputer
+    ssh_alias: fill-me
+    hostname: fill-me
+    user: fill-me
+    port: 22
+    identity_file:
+    auth_mode: ssh-key-plus-totp
+    secret_provider: bitwarden
+    bitwarden_item: fill-me
+    password_ref:
+    totp_ref: bitwarden:item:fill-me:totp
+    ssh_key_ref: bitwarden:ssh-agent:fill-me
+    ssh_key_mode: bitwarden-ssh-agent
+    identity_agent: ~/.bitwarden-ssh-agent.sock
+    scheduler: slurm
+    login_host: fill-me
+    account: fill-me
+    partition: fill-me
+    qos: fill-me
+    workspace_root: /path/to/work
+    scratch_root: /path/to/scratch
+    access_status: fill-me
+    module_loads: []
+    env_bootstrap: []
+    notes:
+      - capture queue policy here
+
+  - name: lab-vm-01
+    category: vm-ssh
+    description: directly usable guest VM
+    ssh_alias: fill-me
+    hostname: fill-me
+    user: fill-me
+    port: 22
+    identity_file:
+    auth_mode: ssh-key
+    secret_provider: bitwarden
+    bitwarden_item: fill-me
+    password_ref:
+    totp_ref:
+    ssh_key_ref: bitwarden:ssh-agent:fill-me
+    ssh_key_mode: bitwarden-ssh-agent
+    identity_agent: ~/.bitwarden-ssh-agent.sock
+    scheduler: none
+    gpu_type: fill-me
+    workspace_root: /path/to/work
+    storage_root: /path/to/data
+    access_status: fill-me
+    env_bootstrap: []
+    notes:
+      - guest OS is under your control, physical host is not
+
+  - name: lab-vm-02
+    category: vm-ssh
+    description: directly usable guest VM
+    ssh_alias: fill-me
+    hostname: fill-me
+    user: fill-me
+    port: 22
+    identity_file:
+    auth_mode: ssh-key
+    secret_provider: bitwarden
+    bitwarden_item: fill-me
+    password_ref:
+    totp_ref:
+    ssh_key_ref: bitwarden:ssh-agent:fill-me
+    ssh_key_mode: bitwarden-ssh-agent
+    identity_agent: ~/.bitwarden-ssh-agent.sock
+    scheduler: none
+    gpu_type: fill-me
+    workspace_root: /path/to/work
+    storage_root: /path/to/data
+    access_status: fill-me
+    env_bootstrap: []
+    notes:
+      - guest OS is under your control, physical host is not
+
+  - name: h100-cluster
+    category: ssh-slurm
+    description: dedicated H100 cluster
+    ssh_alias: fill-me
+    proxyjump: fill-me
+    proxyjump_hostname: fill-me
+    proxyjump_user: fill-me
+    proxyjump_port: 22
+    proxyjump_key_ref: bitwarden:ssh-agent:fill-me
+    hostname: fill-me
+    user: fill-me
+    port: 22
+    identity_file:
+    auth_mode: ssh-key
+    secret_provider: bitwarden
+    bitwarden_item: fill-me
+    password_ref:
+    totp_ref:
+    ssh_key_ref: bitwarden:ssh-agent:fill-me
+    ssh_key_mode: bitwarden-ssh-agent
+    identity_agent: ~/.bitwarden-ssh-agent.sock
+    scheduler: slurm
+    login_host: fill-me
+    account: fill-me
+    partition: fill-me
+    qos: fill-me
+    workspace_root: /path/to/work
+    scratch_root: /path/to/scratch
+    access_status: fill-me
+    preferred_gpu_count: 8
+    module_loads: []
+    env_bootstrap:
+      - source ~/.bashrc
+    notes:
+      - use this for H100-specific training

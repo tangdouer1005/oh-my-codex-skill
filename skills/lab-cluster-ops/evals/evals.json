@@ -1,0 +1,41 @@
+{
+  "skill_name": "lab-cluster-ops",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use my H100 cluster to launch a multi-GPU training run for the repo in ~/projects/llm-exp. Sync the latest code if needed, create a Slurm script for 8 GPUs, submit it, and tell me where the logs will be.",
+      "expected_output": "The response should identify the H100 cluster, choose an SSH plus Slurm workflow, prepare or adapt an sbatch script, and report the job submission plus log path.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I need to log into the school supercomputer, check why yesterday's job failed, and pull back the stderr log. The login requires my normal SSH setup plus a one-time code.",
+      "expected_output": "The response should use a TOTP-aware SSH flow, inspect Slurm history and logs, explain the likely failure path, and outline or execute artifact retrieval without exposing secrets.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Pick one of my directly managed lab servers, sync ~/work/seg-exp there, activate the environment, and keep the run alive inside tmux so I can detach.",
+      "expected_output": "The response should choose a direct SSH host, prefer tmux for persistence, set up the remote workspace, and explain how to reattach and monitor.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "SSH into a suitable GPU server and start my long training command in the background. Use tmux or screen so it survives disconnects, then verify that it actually started before you report back.",
+      "expected_output": "The response should operate the remote host when connection details are available, start the command in tmux or screen with logs, verify the session/process/GPU or log state after detaching, and report the reattach and monitoring commands. It should not claim success if the process exits immediately.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Connect to a direct GPU host whose local inventory says it uses a Bitwarden SSH key item. The old SSH alias may still point at a stale local IdentityFile.",
+      "expected_output": "The response should read the user's local inventory, use Bitwarden Desktop SSH Agent for the recorded key item, verify the agent key with ssh-add -l, override stale IdentityFile settings with IdentityAgent plus IdentityFile=none, connect to the host, and run a lightweight hostname/whoami/nvidia-smi check without exporting or printing the private key.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Use a Slurm GPU cluster whose local inventory says it must be reached through a jump host and uses a separate Bitwarden SSH key item for the final login.",
+      "expected_output": "The response should select the cluster from the user's local inventory, use Bitwarden Desktop SSH Agent for both the jump-host key and target-login key, connect through ProxyJump without exporting private keys, inspect Slurm with lightweight commands such as sinfo or squeue, and ask only for missing account/workspace details if they are still required.",
+      "files": []
+    }
+  ]
+}

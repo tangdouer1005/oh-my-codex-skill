@@ -1,0 +1,5 @@
+interface:
+  display_name: "Lab Cluster Ops"
+  short_description: "Run lab SSH, GPU, and Slurm workflows"
+  brand_color: "#2563EB"
+  default_prompt: "Use $lab-cluster-ops to pick a lab machine, connect safely, and launch a recoverable experiment."

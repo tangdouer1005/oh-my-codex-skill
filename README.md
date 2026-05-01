@@ -16,6 +16,7 @@ This repository is meant to serve two purposes:
 - `excalidraw-diagram`
 - `invoice-request-mail`
 - `json-canvas`
+- `lab-cluster-ops`
 - `lark-weekly-report-maintainer`
 - `obsidian-bases`
 - `obsidian-cli`
